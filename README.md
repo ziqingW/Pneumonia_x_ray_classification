@@ -13,18 +13,22 @@ https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 2.  Dev set: 16 images  
 3.  Testing set: 624 images  
 
-**All the images are jpeg files. However, the formats of images are very varied. And some images in training set are in 'RGB' mode, while the others are in 'Greyscale' mode. Thus, all of these variations need to be consistent during the preprocessing step.  
+**All the images are jpeg files. However, the formats of images are very varied. And some images in training set are in 'RGB' mode, while the others are in 'Greyscale' mode. Thus, all of these variations need to be consistent during the preprocessing step.**  
 
 ## Methodology  
-Basically, this project analyzes the data of venues located in the area with the queried zip code and compares the similarity of the template area with Houston's neighborhoods based on the venues' category. The more venues with the same category, the more similar the two areas. To do that, I use euclidean formula to calculate the distance of venues' categories between the template area with every neighborhood in Houston. The lower the distance, the higher the similarity. Eventually, three neighborhoods in Houston with the lowest distance will be the candidates for user to choose from.   
+**I.  Data preprocessing**  
+1.  Load images with PIL in batch by glob.  
+2.  Convert all the images to 'RGB' mode and resize them to 128 x 128 pixels (Using larger image would cause very complex computation, and the significance change is not worth of the computation cost).  
+3.  Standardize the pixel value and convert the image data to numpy vectors, which are the X sets for the model inputs (including training, dev and testing). Create the related Y sets (vector of 0 for normal sets, 1 for pneumonia sets) based on the X set's shape.  
+4.  Make the complete data sets by concatenating both normal and penumonia data sets for both X and Y.  
+5.  Shuffle the data sets in random.  
 
-Steps of the procedure include:  
-1.  Load data from resources(as discussed in the Data section).  
-2.  Process data for the appropriate format.  
-3.  API request for venues data through Foursquare.  
-4.  Convert data of venues into a one-hot table representing the existence percentage of every different venue's category grouped in one same neighborhood.  
-5.  Calculate the distance of venues' categories between the inputted area with every neighborhood in Houston to find out the most similar three.  
-6.  Visualize the results on map.  
+**II. Building the model in Keras**  
+The general idea is like model VGG-16 which keeps increasing filter units in the exponential of 2 and decreasing the image size by half with max pooling during every hidden layer. After 4 hidden layers of computation, the image data is converted from (128, 128, 3) to (5, 5, 256). The flatten vector is eventually computed by a sigmoid function to get the classification results (Fig.1).  
+
+
+
+
 ## Results  
 *  For example, the user wants to search the most similar neighborhoods in Houston as where he lives in New York City with the zip code of **10030**. The results are:  
 > The top three most similar neighborhoods as 10030 in Houston are:  
