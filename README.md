@@ -1,18 +1,20 @@
-# FindYourNeighborhood
+# Pneumonia_x_ray_classification
 ## Introduction  
-This project is designed to help people find the similar neighborhood in Houston as the one they are fond of. It can be useful for business expansion like choosing a new branch’s location, or for the new comer to choose the comfortable place to settle down with the similar environment as the one they’ve enjoyed before. 
+This project's goal is to help doctor diagnose the pathological pneumonia from chest X ray pictures using a deep learning techniche.
 
-So basically, this project would ask user to input a zip code(US only) as template. Then the project would analyze the data of the surrounding venues for the template zip code by Foursquare, and compare the similarity with the neighborhoods from the data of Houston. The result would show the top three neighborhoods with the highest similarities for user to choose. And these neighborhoods will be displayed on the map of Houston.  
+So generally, a convolutional nerual network with 4 hidden layers to classify whether a x ray image is positive of pneumonia was trained by around 5 thousands of images mixed of both pneumonia negative and positive images. The model was created with Keras Framework.
+
 ## Data  
-**The data required to accomplish this project will include:**  
-1.  List of postal codes with their corresponding coordinates in the US. https://gist.github.com/erichurst/7882666  
-    A pandas dataframe displaying postal code, latitude, longitude can be generated from the .csv file by these data.
+**Data Source:**  
+https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 
-2.	List of postal codes with their corresponding neighborhoods in Houston.  https://www.houstoniamag.com/articles/2017/3/24/neighborhoods-by-the-numbers-real-estate-data-2017  
-    The data need to be scraped from web page by BeautifulSoup first for use. Then combine it with the dataframe from data 1 to make a new dataframe showing the postal code, neighborhoods and coordinates in Houston.
+**Data List:**
+1.  Training set: 5216 images  
+2.  Dev set: 16 images  
+3.  Testing set: 624 images  
 
-3.	Data of venues in the surrounding area of the particular coordinates from Foursquare.  
-    Make the API request to Foursquare for the data of the venues at the queried coordinates which come from the dataframe made by data 1 and data 2. Segment the neighborhoods by their venues categories to find out the top three neighborhoods with the highest similarity to the template.  
+**All the images are jpeg files. However, the formats of images are very varied. And some images in training set are in 'RGB' mode, while the others are in 'Greyscale' mode. Thus, all of these variations need to be consistent during the preprocessing step.  
+
 ## Methodology  
 Basically, this project analyzes the data of venues located in the area with the queried zip code and compares the similarity of the template area with Houston's neighborhoods based on the venues' category. The more venues with the same category, the more similar the two areas. To do that, I use euclidean formula to calculate the distance of venues' categories between the template area with every neighborhood in Houston. The lower the distance, the higher the similarity. Eventually, three neighborhoods in Houston with the lowest distance will be the candidates for user to choose from.   
 
