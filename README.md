@@ -26,21 +26,22 @@ https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 **II. Building the model in Keras**  
 The general idea is like model VGG-16 which keeps increasing filter units in the exponential of 2 and decreasing the image size by half with max pooling during every hidden layer. After 4 hidden layers of computation, the image data is converted from (128, 128, 3) to (5, 5, 256). The flatten vector is eventually computed by a sigmoid function to get the classification results (Fig.1).  
 
-
-
+**_Fig.1_** <img src='model.png' title='cnn model' alt='a cnn work flow'>  
+**Hyperparameters (part of)**  
+  * optimizer: Adam, learning rate: 0.001, beta_1: 0.9, beta_2: 0.999  
+  * epochs: 20  
+  * mini batch size: 16  
 
 ## Results  
-*  For example, the user wants to search the most similar neighborhoods in Houston as where he lives in New York City with the zip code of **10030**. The results are:  
-> The top three most similar neighborhoods as 10030 in Houston are:  
-No.1 Greenway Plaza  
-No.2 Rice/Museum District,West University/Southside Area  
-No.3 Upper Kirby  
+By far, upon the current hyperparameters the best results are:  
+  * Accurancy of training set: 1.0;  
+  * Accurancy of dev set: 1.0;  
+  * Accurancy of testing set: 0.83.  
 
-*  Also, if the user entered a zip code of Houston he/she would get the result that the most similar one was the area with the inputted zip code. This can be considered as a positive control of the project.
+The final result can be different by more iterations of training, hyperparameters tuning or other model architectures.    
 
 ## Discussion  
-*  The size of Houston's neighborhoods varies largely, which makes the data of venues from some areas less representing for the features of neighborhood.  
-*  In this project, I combined the venues data from input and Houston together before performing the comparison. The reason of doing this was to ensure all the data sharing the same columns. Then the dataframe was split into two parts, one part for Houston's neighborhoods and the other one for the input area which was only one row.  
+
 
 ## Conclusion  
-By analyzing the local venues information, this project can successfully find out the most similar neighborhoods in Houston as the queried one.  
+
