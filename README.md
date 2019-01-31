@@ -47,4 +47,4 @@ The final result can be different by more iterations of training, hyperparameter
   4. The final best accuracy of the testing set is 0.83, which is not very good and can't be reliable for actual usage. Thus, more following optimization is required definitely.  
 
 ## Conclusion  
-
+Using deep learning technique to assist practical clinic method is very promising and significantly useful. This model to analyze X ray images for pneumonia diagnose is a good try. However, more work needs to be done before it is really practable. 
