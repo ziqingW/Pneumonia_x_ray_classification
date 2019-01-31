@@ -6,7 +6,12 @@ So generally, a convolutional nerual network with 4 hidden layers to classify wh
 
 ## Data  
 **Data Source:**  
-https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
+https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia  
+Normal example:  
+<img src='Normal_example.jpeg' alt='normal x ray' title='normal example' width=250px height=250px>  
+
+Pneumonia example:  
+<img src='Pneumonia_example.jpeg' alt='normal x ray' title='normal example' width=250px height=250px>  
 
 **Data List:**
 1.  Training set: 5216 images  
