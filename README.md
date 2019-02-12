@@ -45,7 +45,7 @@ By far, upon the current hyperparameters the best results are:
   * Accurancy of dev set: 1.0;  
   * Accurancy of testing set: 0.83.  
 
-The final result can be different by more iterations of training, hyperparameters tuning or other model architectures.    
+The final result can be different by more iterations of training, hyperparameters tuning or modifying model architectures.    
 
 ## Discussion  
   1. The image size can be important for the model performance. Since the difference is quite subtle for images between normal and pneumonia, larger image can be more beneficial for more details. However, the computation cost is also exponentially increased when dealing with large image. Therefore, I took the size of 128 x 128 here as the balance between performance and efficiency.
