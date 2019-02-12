@@ -36,6 +36,8 @@ The general model architecture is like model VGG-16 which keeps increasing filte
   * optimizer: Adam, learning rate: 0.001, beta_1: 0.9, beta_2: 0.999  
   * epochs: 20  
   * mini batch size: 16  
+  
+The detailed steps of data analysis can be seen in the file: *X_ray_classification_v2.ipynb*.  
 
 ## Results  
 By far, upon the current hyperparameters the best results are:  
