@@ -1,6 +1,6 @@
 # Pneumonia_x_ray_classification
 ## Introduction  
-This project's goal is to help doctor diagnose the pathological pneumonia from chest X ray pictures using a deep learning techniche.
+This project's goal is to help doctor diagnose the pathological pneumonia from chest X ray pictures using a deep learning technique.
 
 So generally, a convolutional nerual network with 4 hidden layers to classify whether a x ray image is positive of pneumonia was trained by around 5 thousands of images mixed of both pneumonia negative and positive images. The model was created with Keras Framework.
 
